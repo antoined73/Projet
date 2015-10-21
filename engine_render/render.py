@@ -10,8 +10,11 @@ class Render(threading.Thread):
         logger.info("Render successfully created")
 
 
-def draw(asset):
-    pygame.display.get_surface().blit(asset.image, asset.pos.to_tuple())
+def draw(asset, position = None):
+    if not position:
+        position = asset.pos
+
+    pygame.display.get_surface().blit(asset.image, position.to_tuple())
 
 
 if __name__ == "__main__":

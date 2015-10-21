@@ -1,5 +1,5 @@
 import pygame
-
+import engine_render.render as render
 import utils
 
 __author__ = 'KerTakanov'
@@ -21,3 +21,7 @@ class Asset:
         self.name = name
         self.image = pygame.image.load(path)
         self.pos = pos
+
+    def update(self, dt=0):
+        self.pos.update()
+        render.draw(self)
